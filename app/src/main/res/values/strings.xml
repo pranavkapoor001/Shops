@@ -1,3 +1,47 @@
 <resources>
     <string name="app_name">Shops</string>
+
+    <!-- Array of shop names -->
+    <string-array name="shop_names">
+        <item>Easy Day</item>>
+        <item>Reliance Digital</item>>
+        <item>More supermarket</item>>
+        <item>Ikea</item>>
+        <item>Nintendo</item>>
+        <item>Airtel Store</item>>
+        <item>Asus</item>>
+    </string-array>
+
+    <!-- Array of shop location latitudes (Must follow order of 'shop_names') -->
+    <string-array name="shop_latitudes">
+        <item>28.631923670702747</item>
+        <item>28.64857965275781</item>
+        <item>31.489634741980108</item>
+        <item>28.559755701856997</item>
+        <item>28.663895730945338</item>
+        <item>28.651680355801858</item>
+        <item>28.638866037636134</item>
+    </string-array>
+
+    <!-- Array of shop location longitudes (Must follow order of 'shop_names') -->
+    <string-array name="shop_longitudes">
+        <item>77.14006472423863</item>
+        <item>77.12553770758834</item>
+        <item>74.33664490438726</item>
+        <item>77.29051666259244</item>
+        <item>77.18889245549353</item>
+        <item>77.12046767011974</item>
+        <item>77.09695001960313</item>
+    </string-array>
+
+    <!-- Array of shop image names (Must follow order of 'shop_names') -->
+    <string-array name="shop_images_uri">
+        <item>easy_day</item>
+        <item>reliance_digital</item>
+        <item>more</item>
+        <item>ikea</item>
+        <item>nintendo</item>
+        <item>airtel</item>
+        <item>asus</item>
+    </string-array>
 </resources>
