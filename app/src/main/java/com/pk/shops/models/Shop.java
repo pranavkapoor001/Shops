@@ -12,13 +12,18 @@ public class Shop implements Parcelable {
     private final String shopLatitude;
     private final String shopLongitude;
     private final Uri shopImageUri;
+    private final String shopOffers;
+    private final String shopProducts;
 
     public Shop(String shopName, String shopLatitude,
-                String shopLongitude, Uri shopImageUri) {
+                String shopLongitude, Uri shopImageUri,
+                String shopOffers, String shopProducts) {
         this.shopName = shopName;
         this.shopLatitude = shopLatitude;
         this.shopLongitude = shopLongitude;
         this.shopImageUri = shopImageUri;
+        this.shopOffers = shopOffers;
+        this.shopProducts = shopProducts;
     }
 
     // Getters
@@ -36,6 +41,14 @@ public class Shop implements Parcelable {
 
     public Uri getShopImageUri() {
         return shopImageUri;
+    }
+
+    public String getShopOffers() {
+        return shopOffers;
+    }
+
+    public String getShopProducts() {
+        return shopProducts;
     }
 
     @Override

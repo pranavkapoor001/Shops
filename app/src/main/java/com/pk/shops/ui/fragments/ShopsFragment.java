@@ -66,6 +66,8 @@ public class ShopsFragment extends Fragment {
         String[] shopLatitudes = getResources().getStringArray(R.array.shop_latitudes);
         String[] shopLongitudes = getResources().getStringArray(R.array.shop_longitudes);
         String[] shopImageUris = getResources().getStringArray(R.array.shop_images_uri);
+        String[] shopOffers = getResources().getStringArray(R.array.shop_offers);
+        String[] shopProducts = getResources().getStringArray(R.array.shop_products);
 
         ArrayList<Shop> shopArrayList = new ArrayList<>();
 
@@ -73,7 +75,7 @@ public class ShopsFragment extends Fragment {
         for (int i = 0; i < shopImageUris.length; i++) {
             shopArrayList.add(new Shop(shopNames[i],
                     shopLatitudes[i],
-                    shopLongitudes[i], getImagePath(i)));
+                    shopLongitudes[i], getImagePath(i), shopOffers[i], shopProducts[i]));
         }
 
         return shopArrayList;

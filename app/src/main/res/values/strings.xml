@@ -45,4 +45,25 @@
         <item>airtel</item>
         <item>asus</item>
     </string-array>
+
+    <string-array name="shop_offers">
+        <item>10% off on apples</item>
+        <item>20% off on cold drinks</item>
+        <item>10% off on milk products</item>
+        <item>50% off on mattress</item>
+        <item>15% off on new games</item>
+        <item>30rs talk time free with 100rs recharge</item>
+        <item>25% off on laptop accessories</item>
+    </string-array>
+
+    <string-array name="shop_products">
+        <item>Apple Carrot Biscuits</item>
+        <item>Pepsi Chocolate Chips</item>
+        <item>Coffee Sugar Candy</item>
+        <item>Table Chair Mattress</item>
+        <item>Games Mouse Keyboard</item>
+        <item>Recharge Sim Charger</item>
+        <item>Battery Keyboard Camera</item>
+    </string-array>
+
 </resources>

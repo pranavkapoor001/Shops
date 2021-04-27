@@ -25,7 +25,7 @@ public class ShopDetailsFragment extends Fragment implements View.OnClickListene
     private ShopUtils shopUtils;
 
     // UI Components
-    private TextView tvShopName;
+    private TextView tvShopName, tvShopOffers, tvShopProducts;
 
     @Nullable
     @Override
@@ -50,6 +50,8 @@ public class ShopDetailsFragment extends Fragment implements View.OnClickListene
 
         // find views
         tvShopName = view.findViewById(R.id.details_shop_name);
+        tvShopOffers = view.findViewById(R.id.details_shop_offers);
+        tvShopProducts = view.findViewById(R.id.details_shop_products);
         Button btnOpenMaps = view.findViewById(R.id.details_open_map);
         Button btnShareShop = view.findViewById(R.id.details_share_shop);
 
@@ -66,6 +68,8 @@ public class ShopDetailsFragment extends Fragment implements View.OnClickListene
 
     private void updateUI() {
         tvShopName.setText(currentShop.getShopName());
+        tvShopOffers.setText(currentShop.getShopOffers());
+        tvShopProducts.setText(currentShop.getShopProducts());
     }
 
     @Override

@@ -12,6 +12,30 @@
         android:text="Easy Day"
         android:textSize="30sp" />
 
+    <TextView
+        android:id="@+id/details_shop_offers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="10% off on apples" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="Available products: "
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/details_shop_products"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="Apple Carrot Biscuits" />
+
     <Button
         android:id="@+id/details_open_map"
         android:layout_width="wrap_content"
