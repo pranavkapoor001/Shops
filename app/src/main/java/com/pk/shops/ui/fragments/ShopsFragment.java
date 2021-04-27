@@ -1,37 +1,53 @@
-package com.pk.shops;
+package com.pk.shops.ui.fragments;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pk.shops.BuildConfig;
+import com.pk.shops.R;
+import com.pk.shops.models.Shop;
+import com.pk.shops.ui.adapters.ShopsListView;
+
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class ShopsFragment extends Fragment {
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.shop_list_fragment, container, false);
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        // Setup dummy data in views
-        initShopList();
+        // Setup recycler view
+        initShopList(view);
     }
 
     /**
      * Initializes recycler view containing shops list
      */
-    private void initShopList() {
+    private void initShopList(View view) {
         RecyclerView recyclerView;
         ShopsListView shopsListView;
 
         // Get handle to recycler view element
-        recyclerView = findViewById(R.id.shop_list_recycler_view);
+        recyclerView = view.findViewById(R.id.shop_list_recycler_view);
 
         // Set LayoutManager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 

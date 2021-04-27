@@ -1,4 +1,4 @@
-package com.pk.shops;
+package com.pk.shops.models;
 
 import android.net.Uri;
 
