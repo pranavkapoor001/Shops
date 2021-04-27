@@ -1,11 +1,13 @@
 package com.pk.shops.models;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * This class stores individual shop details
  */
-public class Shop {
+public class Shop implements Parcelable {
     private final String shopName;
     private final String shopLatitude;
     private final String shopLongitude;
@@ -34,5 +36,15 @@ public class Shop {
 
     public Uri getShopImageUri() {
         return shopImageUri;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

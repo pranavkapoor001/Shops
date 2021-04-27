@@ -1,6 +1,7 @@
 package com.pk.shops.ui.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,6 +70,11 @@ public class ShopsListView extends RecyclerView.Adapter<ShopsListView.ShopsListV
     private void launchShopDetailsFragment(int pos) {
         AppCompatActivity activity = (AppCompatActivity) mContext;
         Fragment fragment = new ShopDetailsFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("current_shop", mShopArrayList.get(pos));
+        fragment.setArguments(bundle);
+
         activity.getSupportFragmentManager()
                 .beginTransaction()
                 .setReorderingAllowed(true)
