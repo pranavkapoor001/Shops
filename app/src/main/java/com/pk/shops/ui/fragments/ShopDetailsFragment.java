@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,14 +13,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.pk.shops.R;
+import com.pk.shops.Utils.ShopUtils;
 import com.pk.shops.models.Shop;
 
 public class ShopDetailsFragment extends Fragment implements View.OnClickListener {
 
     // vars
     private static final String TAG = "ShopDetailsFragment";
-    private Shop currentShop;
     private Bundle bundle;
+    private Shop currentShop;
+    private ShopUtils shopUtils;
 
     // UI Components
     private TextView tvShopName;
@@ -47,6 +50,15 @@ public class ShopDetailsFragment extends Fragment implements View.OnClickListene
 
         // find views
         tvShopName = view.findViewById(R.id.details_shop_name);
+        Button btnOpenMaps = view.findViewById(R.id.details_open_map);
+        Button btnShareShop = view.findViewById(R.id.details_share_shop);
+
+        // Set onClick listener
+        btnOpenMaps.setOnClickListener(this);
+        btnShareShop.setOnClickListener(this);
+
+        // Initialize helper
+        shopUtils = new ShopUtils(currentShop, view.getContext());
 
         // Update UI
         updateUI();
@@ -58,8 +70,13 @@ public class ShopDetailsFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.details_open_map) {
-            // open maps here
+        switch (v.getId()) {
+            case R.id.details_open_map:
+                shopUtils.openMaps();
+                break;
+            case R.id.details_share_shop:
+                shopUtils.shareShop();
+                break;
         }
     }
 }

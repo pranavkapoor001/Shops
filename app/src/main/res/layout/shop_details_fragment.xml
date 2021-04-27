@@ -21,4 +21,13 @@
         android:padding="16dp"
         android:text="@string/open_in_maps" />
 
+    <Button
+        android:id="@+id/details_share_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:text="share shop" />
+
 </LinearLayout>
