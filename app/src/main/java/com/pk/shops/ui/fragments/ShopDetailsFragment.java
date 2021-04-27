@@ -3,6 +3,7 @@ package com.pk.shops.ui.fragments;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -27,10 +28,22 @@ public class ShopDetailsFragment extends Fragment implements View.OnClickListene
     // UI Components
     private TextView tvShopName, tvShopOffers, tvShopProducts;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        /* Options menu should be disable here
+         * setHasOptionsMenu(false) is not working
+         *
+         * Enable the menu so we get onPrepareOptionsMenu() callback
+         * and clear there!
+         */
+        setHasOptionsMenu(true);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         // Get Shop object passed by ShopsFragment parent fragment
         bundle = this.getArguments();
         if (bundle != null)
@@ -82,5 +95,11 @@ public class ShopDetailsFragment extends Fragment implements View.OnClickListene
                 shopUtils.shareShop();
                 break;
         }
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        // Menu should not be shown in details fragment, clear it
+        menu.clear();
     }
 }

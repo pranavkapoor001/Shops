@@ -3,8 +3,13 @@ package com.pk.shops.ui.fragments;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,16 +20,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.pk.shops.BuildConfig;
 import com.pk.shops.R;
 import com.pk.shops.models.Shop;
-import com.pk.shops.ui.adapters.ShopsListView;
+import com.pk.shops.ui.adapters.ShopsListAdapter;
 
 import java.util.ArrayList;
 
 public class ShopsFragment extends Fragment {
 
+    public static final String TAG = "ShopsFragment";
+    private ShopsListAdapter shopsListAdapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Enable search bar options menu
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.shop_list_fragment, container, false);
     }
 
@@ -41,7 +50,6 @@ public class ShopsFragment extends Fragment {
      */
     private void initShopList(View view) {
         RecyclerView recyclerView;
-        ShopsListView shopsListView;
 
         // Get handle to recycler view element
         recyclerView = view.findViewById(R.id.shop_list_recycler_view);
@@ -52,8 +60,8 @@ public class ShopsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // Init the adapter
-        shopsListView = new ShopsListView(getShopData());
-        recyclerView.setAdapter(shopsListView);
+        shopsListAdapter = new ShopsListAdapter(getShopData());
+        recyclerView.setAdapter(shopsListAdapter);
     }
 
     /**
@@ -90,5 +98,25 @@ public class ShopsFragment extends Fragment {
     private Uri getImagePath(int pos) {
         return Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/drawable/" +
                 getResources().getStringArray(R.array.shop_images_uri)[pos]);
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                shopsListAdapter.getFilter().filter(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 }
